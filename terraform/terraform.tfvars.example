@@ -1,0 +1,23 @@
+# Copy this file to terraform.tfvars and fill in your values
+# DO NOT commit terraform.tfvars to version control
+
+aws_region   = "us-east-1"
+project_name = "tec-energy"
+environment  = "dev"
+
+# Update this with your ECR image URI
+# Format: <ACCOUNT_ID>.dkr.ecr.<REGION>.amazonaws.com/<REPO_NAME>:<TAG>
+# Example: 123456789012.dkr.ecr.us-east-1.amazonaws.com/tec-energy:latest
+container_image = "YOUR_ECR_IMAGE_URI"
+
+# Application container settings
+container_port   = 8000
+container_cpu    = 512           # Options: 256, 512, 1024, 2048, 4096
+container_memory = 1024          # Must be compatible with CPU choice
+
+# Deployment settings
+desired_count    = 2             # Number of ECS tasks to run
+
+# Monitoring
+enable_monitoring = true         # Enable CloudWatch alarms and dashboard
+
